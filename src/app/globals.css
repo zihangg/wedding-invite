@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f0eb;
+  --foreground: #2c3e6b;
+  --primary: #5b7fb5;
+  --primary-dark: #3a5a8c;
+  --accent: #d4a843;
+  --accent-soft: #f0dda0;
+  --muted: #7a8ba5;
+  --card: #ffffff;
+  --border: #c8d4e4;
+  --blue-light: #d6e4f5;
+  --blue-pale: #eaf1fa;
+  --cream: #fdf8ef;
+  --sage: #7a9e76;
+  --sage-light: #d8e8d4;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-blue-light: var(--blue-light);
+  --color-blue-pale: var(--blue-pale);
+  --color-cream: var(--cream);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-lora);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, serif);
+}
+
+/* Hero entrance animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes grow-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.hero-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.hero-fade-up-1 { animation-delay: 0.1s; }
+.hero-fade-up-2 { animation-delay: 0.3s; }
+.hero-fade-up-3 { animation-delay: 0.5s; }
+.hero-fade-up-4 { animation-delay: 0.7s; }
+.hero-fade-up-5 { animation-delay: 0.9s; }
+.hero-fade-up-6 { animation-delay: 1.1s; }
+
+.hero-line {
+  animation: grow-line 0.6s ease-out both;
+  animation-delay: 0.4s;
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-on-scroll.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
