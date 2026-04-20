@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lora } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -10,6 +11,11 @@ const playfair = Playfair_Display({
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
+});
+
+const moontime = localFont({
+  src: "../fonts/MoonTime.ttf",
+  variable: "--font-moontime",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${lora.variable} h-full antialiased`}
+      className={`${playfair.variable} ${lora.variable} ${moontime.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
