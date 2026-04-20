@@ -36,6 +36,11 @@ const hanyiScholar = localFont({
 export const metadata: Metadata = {
   title: "You're Invited",
   description: "We would be honored to have you celebrate with us.",
+  openGraph: {
+    siteName: "Zi Hang & Sher Nee",
+    title: "You're Invited",
+    description: "We would be honored to have you celebrate with us.",
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-icon.png",
