@@ -18,6 +18,16 @@ const moontime = localFont({
   variable: "--font-moontime",
 });
 
+const anastasiaScript = localFont({
+  src: "../fonts/AnastasiaScript.ttf",
+  variable: "--font-anastasia",
+});
+
+const theSeasons = localFont({
+  src: "../fonts/TheSeasons.ttf",
+  variable: "--font-seasons",
+});
+
 export const metadata: Metadata = {
   title: "You're Invited",
   description: "We would be honored to have you celebrate with us.",
@@ -31,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${lora.variable} ${moontime.variable} h-full antialiased`}
+      className={`${playfair.variable} ${lora.variable} ${moontime.variable} ${anastasiaScript.variable} ${theSeasons.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
