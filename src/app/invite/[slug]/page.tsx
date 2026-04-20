@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import { Hero } from "@/components/hero";
 import { Location } from "@/components/location";
-import { EventDetails } from "@/components/event-details";
+import { Timeline } from "@/components/timeline";
+import { Dresscode } from "@/components/dresscode";
 import { RsvpForm } from "@/components/rsvp-form";
 import { Footer } from "@/components/footer";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
@@ -33,7 +34,10 @@ export default async function InvitePage(
           <Location />
         </AnimateOnScroll>
         <AnimateOnScroll>
-          <EventDetails />
+          <Dresscode />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Timeline />
         </AnimateOnScroll>
         <AnimateOnScroll delay={150}>
           <RsvpForm guest={guest as Guest} />

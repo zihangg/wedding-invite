@@ -28,6 +28,11 @@ const theSeasons = localFont({
   variable: "--font-seasons",
 });
 
+const hanyiScholar = localFont({
+  src: "../fonts/HanyiSentyScholar.ttf",
+  variable: "--font-hanyi-scholar",
+});
+
 export const metadata: Metadata = {
   title: "You're Invited",
   description: "We would be honored to have you celebrate with us.",
@@ -41,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${lora.variable} ${moontime.variable} ${anastasiaScript.variable} ${theSeasons.variable} h-full antialiased`}
+      className={`${playfair.variable} ${lora.variable} ${moontime.variable} ${anastasiaScript.variable} ${theSeasons.variable} ${hanyiScholar.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
