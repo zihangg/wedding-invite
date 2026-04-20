@@ -38,7 +38,7 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--background) url("/paper-texture.jpg") center / cover;
   color: var(--foreground);
   font-family: var(--font-sans, serif);
 }

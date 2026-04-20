@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import { Hero } from "@/components/hero";
+import { Location } from "@/components/location";
 import { EventDetails } from "@/components/event-details";
 import { RsvpForm } from "@/components/rsvp-form";
 import { Footer } from "@/components/footer";
@@ -28,6 +29,9 @@ export default async function InvitePage(
     <Envelope>
       <div className="flex flex-col min-h-screen">
         <Hero />
+        <AnimateOnScroll>
+          <Location />
+        </AnimateOnScroll>
         <AnimateOnScroll>
           <EventDetails />
         </AnimateOnScroll>
