@@ -58,7 +58,7 @@ export function Timeline() {
       </AnimateOnScroll>
 
       {/* Timeline events */}
-      <div className="relative w-full max-w-md md:max-w-lg mt-4">
+      <div className="relative w-full max-w-md md:max-w-lg mt-4 overflow-x-clip">
         {/* Center dashed line */}
         <div className="absolute left-1/2 top-0 bottom-0 w-px border-l-2 border-dashed border-primary/30 -translate-x-px" />
 

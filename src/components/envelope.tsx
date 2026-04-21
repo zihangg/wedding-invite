@@ -1,10 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export function Envelope({ children }: { children: React.ReactNode }) {
   const [opened, setOpened] = useState(false);
+
+  useEffect(() => {
+    if (!opened) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      window.scrollTo(0, 0);
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [opened]);
 
   return (
     <div className="relative">

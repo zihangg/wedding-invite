@@ -20,7 +20,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center min-h-dvh px-6 text-center overflow-hidden">
       {/* Background video */}
       <video
         ref={videoRef}
@@ -29,6 +29,7 @@ export function Hero() {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover will-change-transform"
+        style={{ transform: "scale(1.05)" }}
       >
         <source src="/bg.mp4" type="video/mp4" />
       </video>
@@ -38,7 +39,7 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-48 z-[1]" style={{ background: "url(/paper-texture.jpg) center / cover", maskImage: "linear-gradient(to bottom, transparent, black)" }} />
 
       {/* Content overlay */}
-      <div className="relative z-10 flex flex-col items-center min-h-screen justify-center py-16">
+      <div className="relative z-10 flex flex-col items-center min-h-dvh justify-center py-16">
         <p
           className="hero-fade-up hero-fade-up-1 text-primary-dark text-xl md:text-2xl tracking-wide italic"
           style={{ fontFamily: "'Times New Roman', Times, serif", textShadow }}

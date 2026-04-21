@@ -37,10 +37,6 @@
   --font-script: var(--font-moontime);
 }
 
-html, body {
-  overflow-x: hidden;
-}
-
 body {
   background: var(--background) url("/paper-texture.jpg") center / cover;
   color: var(--foreground);
