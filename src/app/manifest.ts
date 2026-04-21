@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "You're Invited",
     short_name: "Wedding",
     icons: [
-      { src: "/emblem.png", sizes: "512x512", type: "image/png" },
+      { src: "/ico.png", sizes: "1024x1024", type: "image/png" },
       { src: "/favicon.ico", sizes: "any", type: "image/x-icon" },
     ],
     display: "standalone",
