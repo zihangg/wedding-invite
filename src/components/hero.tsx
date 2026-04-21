@@ -34,10 +34,6 @@ export function Hero() {
         <source src="/bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Bottom fade to blend into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 z-[1]" style={{ background: "linear-gradient(to bottom, transparent, var(--background))" }} />
-      <div className="absolute bottom-0 left-0 right-0 h-48 z-[1]" style={{ background: "url(/paper-texture.jpg) center / cover", maskImage: "linear-gradient(to bottom, transparent, black)" }} />
-
       {/* Content overlay */}
       <div className="relative z-10 flex flex-col items-center min-h-dvh justify-center py-16">
         <p

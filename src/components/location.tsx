@@ -5,7 +5,7 @@ import { AnimateOnScroll } from "./animate-on-scroll";
 
 export function Location() {
   return (
-    <section className="flex flex-col items-center justify-center px-4 py-16 md:py-24">
+    <section className="relative -mt-48 pt-64 flex flex-col items-center justify-center px-4 pb-16 md:pb-24" style={{ background: "var(--background) url(/paper-texture.jpg) center / cover", maskImage: "linear-gradient(to bottom, transparent 0%, black 12rem)", WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12rem)" }}>
       <AnimateOnScroll animation="animate-title">
         <h2
           className="text-primary text-7xl md:text-8xl"
