@@ -30,15 +30,9 @@ export default async function InvitePage(
     <Envelope>
       <div className="flex flex-col min-h-screen">
         <Hero />
-        <AnimateOnScroll>
-          <Location />
-        </AnimateOnScroll>
-        <AnimateOnScroll>
-          <Dresscode />
-        </AnimateOnScroll>
-        <AnimateOnScroll>
-          <Timeline />
-        </AnimateOnScroll>
+        <Location />
+        <Dresscode />
+        <Timeline />
         <AnimateOnScroll delay={150}>
           <RsvpForm guest={guest as Guest} />
         </AnimateOnScroll>

@@ -5,10 +5,12 @@ import { useEffect, useRef, type ReactNode } from "react";
 export function AnimateOnScroll({
   children,
   className = "",
+  animation = "animate-on-scroll",
   delay = 0,
 }: {
   children: ReactNode;
   className?: string;
+  animation?: string;
   delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -34,7 +36,7 @@ export function AnimateOnScroll({
   }, [delay]);
 
   return (
-    <div ref={ref} className={`animate-on-scroll ${className}`}>
+    <div ref={ref} className={`${animation} ${className}`}>
       {children}
     </div>
   );
