@@ -18,6 +18,10 @@ export function Hero() {
         <source src="/bg.mp4" type="video/mp4" />
       </video>
 
+      {/* Bottom fade to blend into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 z-[1]" style={{ background: "linear-gradient(to bottom, transparent, var(--background))" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-48 z-[1]" style={{ background: "url(/paper-texture.jpg) center / cover", maskImage: "linear-gradient(to bottom, transparent, black)" }} />
+
       {/* Content overlay */}
       <div className="relative z-10 flex flex-col items-center min-h-screen justify-center py-16">
         <p
@@ -35,8 +39,7 @@ export function Hero() {
         </h1>
 
         <span
-          className="hero-fade-up hero-fade-up-3 text-accent text-7xl md:text-8xl mt-2"
-          style={{ fontFamily: "var(--font-moontime)", textShadow }}
+          className="hero-fade-up hero-fade-up-3 text-accent-soft text-5xl md:text-6xl mt-2 font-serif italic"
         >
           &amp;
         </span>
@@ -59,8 +62,8 @@ export function Hero() {
 
         {/* Date */}
         <p
-          className="hero-fade-up hero-fade-up-5 mt-6 tracking-[0.3em] uppercase text-primary-dark text-sm md:text-base font-bold"
-          style={{ fontFamily: "var(--font-seasons)", textShadow }}
+          className="hero-fade-up hero-fade-up-5 mt-6 text-primary-dark text-5xl md:text-6xl"
+          style={{ fontFamily: "var(--font-moontime)", textShadow }}
         >
           Saturday
         </p>
@@ -80,7 +83,9 @@ export function Hero() {
           >
             Scroll for more
           </p>
-          <span className="text-accent text-lg mt-1 animate-bounce">&#9660;</span>
+          <svg className="w-8 h-8 mt-2 text-accent animate-bounce drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M7 10l5 5 5-5" />
+          </svg>
         </div>
       </div>
     </section>

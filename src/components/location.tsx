@@ -11,7 +11,7 @@ export function Location() {
       </h2>
 
       <p
-        className="mt-3 tracking-[0.15em] uppercase text-primary-dark text-sm md:text-base font-bold text-center leading-relaxed"
+        className="mt-6 tracking-[0.15em] uppercase text-primary-dark text-sm md:text-base font-bold text-center leading-relaxed"
         style={{ fontFamily: "var(--font-seasons)" }}
       >
         Parkroyal Penang Resort
@@ -19,7 +19,7 @@ export function Location() {
         Batu Ferringhi
       </p>
 
-      <div className="mt-2 w-full max-w-sm md:max-w-md overflow-hidden">
+      <div className="mt-6 w-full max-w-sm md:max-w-md overflow-hidden">
         <Image
           src="/location.png"
           alt="Parkroyal Penang Resort"

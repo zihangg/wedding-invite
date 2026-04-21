@@ -10,16 +10,18 @@ export function Dresscode() {
         Dresscode
       </h2>
 
-      <Image
-        src="/attire.png"
-        alt="Formal attire"
-        width={800}
-        height={600}
-        className="mt-4 w-48 md:w-64"
-      />
+      <div className="mt-4 w-48 md:w-64 overflow-hidden">
+        <Image
+          src="/attire.png"
+          alt="Formal attire"
+          width={800}
+          height={600}
+          className="w-full -mb-[15%]"
+        />
+      </div>
 
       <p
-        className="mt-4 tracking-[0.15em] uppercase text-primary-dark text-lg md:text-xl font-bold"
+        className="mt-2 tracking-[0.15em] uppercase text-primary-dark text-lg md:text-xl font-bold"
         style={{ fontFamily: "var(--font-seasons)" }}
       >
         Formal Attire
