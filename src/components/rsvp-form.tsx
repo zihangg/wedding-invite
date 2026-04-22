@@ -4,20 +4,28 @@ import { useActionState, useState } from "react";
 import { submitRsvp, type RsvpState } from "@/app/actions/rsvp";
 import type { Guest } from "@/lib/types";
 
-export function RsvpForm({ guest }: { guest: Guest }) {
+export function RsvpForm({ guest }: { guest?: Guest }) {
   const [state, formAction, isPending] = useActionState<RsvpState, FormData>(
     submitRsvp,
     null
   );
   const [attending, setAttending] = useState<string>(
-    guest.attending === true ? "yes" : guest.attending === false ? "no" : ""
+    guest?.attending === true ? "yes" : guest?.attending === false ? "no" : ""
   );
+  const [guestCount, setGuestCount] = useState<string>(String(guest?.guest_count || 1));
 
-  const alreadySubmitted = guest.rsvp_submitted_at !== null;
-  const justSubmitted = state?.success === true;
-  const [showForm, setShowForm] = useState(false);
+  const alreadySubmitted = guest != null && guest.rsvp_submitted_at != null;
+  const [view, setView] = useState<"form" | "thanks">(alreadySubmitted ? "form" : "form");
+  const [lastState, setLastState] = useState<RsvpState>(null);
 
-  if (justSubmitted && !showForm) {
+  if (state !== lastState) {
+    setLastState(state);
+    if (state?.success) {
+      setView("thanks");
+    }
+  }
+
+  if (view === "thanks") {
     return (
       <section className="flex flex-col items-center px-4 py-16 md:py-24" id="rsvp">
         <div className="max-w-md mx-auto text-center">
@@ -36,13 +44,15 @@ export function RsvpForm({ guest }: { guest: Guest }) {
               ? "celebrating with you!"
               : "sharing our joy with you from afar."}
           </p>
-          <button
-            onClick={() => setShowForm(true)}
-            className="mt-6 py-3 px-8 rounded-full border-2 border-primary-dark text-primary-dark tracking-[0.15em] uppercase text-sm font-bold cursor-pointer transition-all hover:bg-primary-dark hover:text-white"
-            style={{ fontFamily: "var(--font-seasons)" }}
-          >
-            Update RSVP
-          </button>
+          {guest && (
+            <button
+              onClick={() => setView("form")}
+              className="mt-6 py-3 px-8 rounded-full border-2 border-primary-dark text-primary-dark tracking-[0.15em] uppercase text-sm font-bold cursor-pointer transition-all hover:bg-primary-dark hover:text-white"
+              style={{ fontFamily: "var(--font-seasons)" }}
+            >
+              Update RSVP
+            </button>
+          )}
         </div>
       </section>
     );
@@ -74,7 +84,7 @@ export function RsvpForm({ guest }: { guest: Guest }) {
       )}
 
       <form action={formAction} className="mt-8 w-full max-w-sm space-y-6">
-        <input type="hidden" name="slug" value={guest.slug} />
+        {guest && <input type="hidden" name="slug" value={guest.slug} />}
 
         {/* Name */}
         <div>
@@ -84,13 +94,24 @@ export function RsvpForm({ guest }: { guest: Guest }) {
           >
             Name
           </label>
-          <input
-            type="text"
-            value={guest.name}
-            readOnly
-            className="w-full border-b-2 border-primary-dark/50 bg-transparent px-1 py-2 text-primary-dark font-bold text-lg md:text-xl focus:outline-none"
-            style={{ fontFamily: "var(--font-seasons)" }}
-          />
+          {guest ? (
+            <input
+              type="text"
+              value={guest.name}
+              readOnly
+              className="w-full border-b-2 border-primary-dark/50 bg-transparent px-1 py-2 text-primary-dark font-bold text-lg md:text-xl focus:outline-none"
+              style={{ fontFamily: "var(--font-seasons)" }}
+            />
+          ) : (
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Your full name"
+              className="w-full border-b-2 border-primary-dark/50 bg-transparent px-1 py-2 text-primary-dark font-bold text-lg md:text-xl focus:outline-none focus:border-primary placeholder:text-primary-dark/30 placeholder:font-normal"
+              style={{ fontFamily: "var(--font-seasons)" }}
+            />
+          )}
         </div>
 
         {/* Attending */}
@@ -163,7 +184,8 @@ export function RsvpForm({ guest }: { guest: Guest }) {
               name="guest_count"
               min={1}
               max={10}
-              defaultValue={guest.guest_count || 1}
+              value={guestCount}
+              onChange={(e) => setGuestCount(e.target.value)}
               className="w-full border-b-2 border-primary-dark/50 bg-transparent px-1 py-2 text-primary-dark font-bold text-lg md:text-xl focus:outline-none focus:border-primary"
               style={{ fontFamily: "var(--font-seasons)" }}
             />
