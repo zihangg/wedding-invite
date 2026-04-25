@@ -183,7 +183,7 @@ export function RsvpForm({ guest }: { guest?: Guest }) {
               type="number"
               name="guest_count"
               min={1}
-              max={10}
+              max={guest?.max_count ?? 10}
               value={guestCount}
               onChange={(e) => setGuestCount(e.target.value)}
               className="w-full border-b-2 border-primary-dark/50 bg-transparent px-1 py-2 text-primary-dark font-bold text-lg md:text-xl focus:outline-none focus:border-primary"

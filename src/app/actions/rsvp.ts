@@ -20,6 +20,17 @@ export async function submitRsvp(
 
   if (slug) {
     // Slug-based invite: update existing guest
+    const { data: guest } = await supabase
+      .from("guests")
+      .select("max_count")
+      .eq("slug", slug)
+      .single();
+
+    const maxCount = guest?.max_count ?? 10;
+    if (attending && (guestCount < 1 || guestCount > maxCount)) {
+      return { success: false, error: `Guest count must be between 1 and ${maxCount}.` };
+    }
+
     const { error } = await supabase
       .from("guests")
       .update({
@@ -39,6 +50,10 @@ export async function submitRsvp(
     const name = (formData.get("name") as string)?.trim();
     if (!name) {
       return { success: false, error: "Please enter your name." };
+    }
+
+    if (attending && (guestCount < 1 || guestCount > 10)) {
+      return { success: false, error: "Guest count must be between 1 and 10." };
     }
 
     const openSlug = `open-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
