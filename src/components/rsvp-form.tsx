@@ -7,10 +7,10 @@ import type { Guest } from "@/lib/types";
 export function RsvpForm({ guest }: { guest: Guest }) {
   const [state, formAction, isPending] = useActionState<RsvpState, FormData>(
     submitRsvp,
-    null
+    null,
   );
   const [attending, setAttending] = useState<string>(
-    guest.attending === true ? "yes" : guest.attending === false ? "no" : ""
+    guest.attending === true ? "yes" : guest.attending === false ? "no" : "",
   );
 
   const alreadySubmitted = guest.rsvp_submitted_at !== null;
@@ -21,8 +21,18 @@ export function RsvpForm({ guest }: { guest: Guest }) {
       <section className="py-16 px-6" id="rsvp">
         <div className="max-w-md mx-auto text-center bg-card rounded-2xl border border-border p-10 shadow-sm">
           <div className="w-16 h-16 rounded-full bg-sage-light flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            <svg
+              className="w-8 h-8 text-sage"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
             </svg>
           </div>
           <h2 className="font-serif text-3xl text-primary-dark mb-4">
@@ -48,11 +58,6 @@ export function RsvpForm({ guest }: { guest: Guest }) {
         {alreadySubmitted && (
           <p className="text-center text-muted text-sm mb-8">
             You&apos;ve already responded. You may update your RSVP below.
-          </p>
-        )}
-        {!alreadySubmitted && (
-          <p className="text-center text-muted text-sm mb-8">
-            Kindly respond by June 1st, 2026
           </p>
         )}
 
@@ -91,7 +96,9 @@ export function RsvpForm({ guest }: { guest: Guest }) {
                   onChange={() => setAttending("yes")}
                   className="sr-only"
                 />
-                <span className="font-serif text-base text-center">Joyfully Accept</span>
+                <span className="font-serif text-base text-center">
+                  Joyfully Accept
+                </span>
               </label>
               <label
                 className={`flex items-center justify-center min-h-14 px-4 py-3 rounded-lg border-2 cursor-pointer transition-all ${
@@ -108,7 +115,9 @@ export function RsvpForm({ guest }: { guest: Guest }) {
                   onChange={() => setAttending("no")}
                   className="sr-only"
                 />
-                <span className="font-serif text-base text-center">Regretfully Decline</span>
+                <span className="font-serif text-base text-center">
+                  Regretfully Decline
+                </span>
               </label>
             </div>
           </div>
