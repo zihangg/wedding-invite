@@ -77,12 +77,19 @@ export function RsvpForm({ guest }: { guest?: Guest }) {
         RSVP
       </h2>
 
-      <p
-        className="mt-2 text-primary-dark text-sm md:text-base text-center"
-        style={{ fontFamily: "var(--font-seasons)" }}
-      >
-        You&apos;ve already responded. You may update below.
-      </p>
+      {alreadySubmitted ? (
+        <p
+          className="mt-2 text-primary-dark text-sm md:text-base text-center"
+          style={{ fontFamily: "var(--font-seasons)" }}
+        >
+          You&apos;ve already responded. You may update below.
+        </p>
+      ) : (
+        <p
+          className="mt-2 tracking-[0.15em] uppercase text-primary-dark text-sm md:text-base font-bold text-center"
+          style={{ fontFamily: "var(--font-seasons)" }}
+        ></p>
+      )}
 
       <form action={formAction} className="mt-8 w-full max-w-sm space-y-6">
         {guest && <input type="hidden" name="slug" value={guest.slug} />}
