@@ -7,15 +7,19 @@ import type { Guest } from "@/lib/types";
 export function RsvpForm({ guest }: { guest?: Guest }) {
   const [state, formAction, isPending] = useActionState<RsvpState, FormData>(
     submitRsvp,
-    null
+    null,
   );
   const [attending, setAttending] = useState<string>(
-    guest?.attending === true ? "yes" : guest?.attending === false ? "no" : ""
+    guest?.attending === true ? "yes" : guest?.attending === false ? "no" : "",
   );
-  const [guestCount, setGuestCount] = useState<string>(String(guest?.guest_count || 1));
+  const [guestCount, setGuestCount] = useState<string>(
+    String(guest?.guest_count || 1),
+  );
 
   const alreadySubmitted = guest != null && guest.rsvp_submitted_at != null;
-  const [view, setView] = useState<"form" | "thanks">(alreadySubmitted ? "form" : "form");
+  const [view, setView] = useState<"form" | "thanks">(
+    alreadySubmitted ? "form" : "form",
+  );
   const [lastState, setLastState] = useState<RsvpState>(null);
 
   if (state !== lastState) {
@@ -27,7 +31,10 @@ export function RsvpForm({ guest }: { guest?: Guest }) {
 
   if (view === "thanks") {
     return (
-      <section className="flex flex-col items-center px-4 py-16 md:py-24" id="rsvp">
+      <section
+        className="flex flex-col items-center px-4 py-16 md:py-24"
+        id="rsvp"
+      >
         <div className="max-w-md mx-auto text-center">
           <h2
             className="text-primary text-7xl md:text-8xl"
@@ -59,7 +66,10 @@ export function RsvpForm({ guest }: { guest?: Guest }) {
   }
 
   return (
-    <section className="flex flex-col items-center px-4 py-16 md:py-24" id="rsvp">
+    <section
+      className="flex flex-col items-center px-4 py-16 md:py-24"
+      id="rsvp"
+    >
       <h2
         className="text-primary text-7xl md:text-8xl"
         style={{ fontFamily: "var(--font-moontime)" }}
@@ -67,21 +77,12 @@ export function RsvpForm({ guest }: { guest?: Guest }) {
         RSVP
       </h2>
 
-      {alreadySubmitted ? (
-        <p
-          className="mt-2 text-primary-dark text-sm md:text-base text-center"
-          style={{ fontFamily: "var(--font-seasons)" }}
-        >
-          You&apos;ve already responded. You may update below.
-        </p>
-      ) : (
-        <p
-          className="mt-2 tracking-[0.15em] uppercase text-primary-dark text-sm md:text-base font-bold text-center"
-          style={{ fontFamily: "var(--font-seasons)" }}
-        >
-          Kindly respond by June 1st, 2026
-        </p>
-      )}
+      <p
+        className="mt-2 text-primary-dark text-sm md:text-base text-center"
+        style={{ fontFamily: "var(--font-seasons)" }}
+      >
+        You&apos;ve already responded. You may update below.
+      </p>
 
       <form action={formAction} className="mt-8 w-full max-w-sm space-y-6">
         {guest && <input type="hidden" name="slug" value={guest.slug} />}
