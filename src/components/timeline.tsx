@@ -7,7 +7,7 @@ const events = [
   {
     title: "Tea Ceremony",
     chinese: "敬茶",
-    time: "4:00pm - 5:30pm",
+    time: "5:00pm - 6:30pm",
     image: "/tea-ceremony.png",
     side: "left" as const,
   },
@@ -65,7 +65,11 @@ export function Timeline() {
         {events.map((event, i) => (
           <AnimateOnScroll
             key={event.title}
-            animation={event.side === "left" ? "animate-slide-left" : "animate-slide-right"}
+            animation={
+              event.side === "left"
+                ? "animate-slide-left"
+                : "animate-slide-right"
+            }
             delay={300 + i * 200}
           >
             <div
@@ -101,7 +105,10 @@ export function Timeline() {
                 >
                   {event.title}
                 </p>
-                <p className="text-primary/60 text-xl md:text-2xl" style={{ fontFamily: "var(--font-hanyi-scholar)" }}>
+                <p
+                  className="text-primary/60 text-xl md:text-2xl"
+                  style={{ fontFamily: "var(--font-hanyi-scholar)" }}
+                >
                   {event.chinese}
                 </p>
                 <p
