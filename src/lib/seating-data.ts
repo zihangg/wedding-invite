@@ -81,7 +81,7 @@ export const tables: Table[] = [
       "Lisa",
       "Lee Zi Xing",
       "Lee Zi Yuan",
-      "Stepmother 2",
+      "Stephanie Kong",
       "Lee Zi Feng",
     ],
   },
@@ -112,8 +112,6 @@ export const tables: Table[] = [
       "Olivier",
       "Alex",
       "Joe Son",
-      "Joe Son Wife",
-      "Joe Son's Son",
     ],
   },
   {
@@ -134,7 +132,6 @@ export const tables: Table[] = [
     name: "Yin Family",
     guests: [
       "Shao Huay",
-      "Shao Huay Mom",
       "Kelsi",
       "Keira",
       "Karl",

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { tables, type Table } from "@/lib/seating-data";
 
-type Match = { table: Table; guest: string };
+type Match = { table: Table; highlights: Set<string> };
 
 const normalize = (value: string) => value.trim().toLowerCase();
 
@@ -16,10 +16,11 @@ export function Seating() {
 
     const results: Match[] = [];
     for (const table of tables) {
-      for (const guest of table.guests) {
-        if (normalize(guest).includes(q)) {
-          results.push({ table, guest });
-        }
+      const highlights = new Set(
+        table.guests.filter((guest) => normalize(guest).includes(q))
+      );
+      if (highlights.size > 0) {
+        results.push({ table, highlights });
       }
     }
     return results;
@@ -60,11 +61,11 @@ export function Seating() {
 
       {/* Results */}
       <div className="w-full mt-8 flex flex-col gap-5">
-        {matches.map(({ table, guest }) => (
+        {matches.map(({ table, highlights }) => (
           <TableCard
-            key={`${table.id}-${guest}`}
+            key={table.id}
             table={table}
-            highlight={guest}
+            highlights={highlights}
           />
         ))}
 
@@ -82,7 +83,13 @@ export function Seating() {
   );
 }
 
-function TableCard({ table, highlight }: { table: Table; highlight: string }) {
+function TableCard({
+  table,
+  highlights,
+}: {
+  table: Table;
+  highlights: Set<string>;
+}) {
   return (
     <div className="w-full rounded-2xl border border-border bg-card/80 px-6 py-6 shadow-sm">
       <div className="flex flex-col items-center text-center">
@@ -103,23 +110,17 @@ function TableCard({ table, highlight }: { table: Table; highlight: string }) {
       <div className="mt-5 h-px w-full bg-border" />
 
       <ul className="mt-5 flex flex-col items-center gap-1.5">
-        {table.guests.map((guest) => {
-          const isYou = guest === highlight;
-          return (
+        {table.guests
+          .filter((guest) => highlights.has(guest))
+          .map((guest) => (
             <li
               key={guest}
-              className={
-                isYou
-                  ? "text-primary-dark text-lg font-bold"
-                  : "text-primary-dark/70 text-base"
-              }
+              className="text-primary-dark text-lg"
               style={{ fontFamily: "'Times New Roman', Times, serif" }}
             >
               {guest}
-              {isYou && <span className="text-accent"> ✦</span>}
             </li>
-          );
-        })}
+          ))}
       </ul>
     </div>
   );
