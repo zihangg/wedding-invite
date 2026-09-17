@@ -153,6 +153,25 @@ body {
   transform: scale(1);
 }
 
+/* Floor-plan highlighted table halo */
+@keyframes seat-halo {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.15); }
+}
+
+.seat-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: seat-halo 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seat-halo {
+    animation: none;
+    opacity: 0.85;
+  }
+}
+
 /* ── Envelope overlay ── */
 .envelope-overlay {
   position: fixed;
