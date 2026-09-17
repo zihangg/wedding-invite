@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Seating } from "@/components/seating";
 import { Footer } from "@/components/footer";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
+
+export const metadata: Metadata = {
+  title: "Find Your Seat",
+  description: "Search for your name to find your table.",
+  openGraph: {
+    siteName: "Zi Hang & Sher Nee",
+    title: "Find Your Seat",
+    description: "Search for your name to find your table.",
+  },
+};
 
 export default function SeatingPage() {
   return (
