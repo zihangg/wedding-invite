@@ -74,8 +74,8 @@ export function Seating() {
             className="mt-2 text-center text-primary/60 text-base italic"
             style={{ fontFamily: "'Times New Roman', Times, serif" }}
           >
-            We couldn&apos;t find that name. Try a different spelling, or reach
-            out to the couple.
+            We couldn&apos;t find that name. Try a different spelling, or head to
+            the reception desk for assistance.
           </p>
         )}
       </div>
