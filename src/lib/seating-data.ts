@@ -110,7 +110,7 @@ export const tables: Table[] = [
       "Yin Joe Lynn",
       "Patricia Yin Chee Eng",
       "Cane Olivier",
-      "Alex",
+      "Alexandre Cane",
       "Chang Joe Son",
     ],
   },
