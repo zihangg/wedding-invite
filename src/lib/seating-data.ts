@@ -159,7 +159,7 @@ export const tables: Table[] = [
     id: "3",
     name: "LEADERland",
     guests: [
-      "Zhiyi",
+      "Chow Zhi Yi",
       "Carinne Yeoh",
       "Zenem Low",
       "Sirius Lee",
