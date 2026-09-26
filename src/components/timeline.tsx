@@ -7,7 +7,7 @@ const events = [
   {
     title: "Tea Ceremony",
     chinese: "敬茶",
-    time: "5:00pm - 6:30pm",
+    time: "3:30 - 6:00pm",
     image: "/tea-ceremony.png",
     side: "left" as const,
   },
