@@ -48,9 +48,9 @@ export const tables: Table[] = [
       "Abu Huraira",
       "Syahriz Kader",
       "Soon Cur Lunn",
-      "Jeannie",
       "Kenneth Ung",
       "Aswintguru Sivaguru",
+      "Chong Jia Qi",
     ],
   },
   {
@@ -216,7 +216,6 @@ export const tables: Table[] = [
     id: "2",
     name: "Zh's Friends",
     guests: [
-      "Chong Jia Qi",
       "Cheah Chor Gene",
       "Mackhem Chuah",
       "Nicholas Lim",
