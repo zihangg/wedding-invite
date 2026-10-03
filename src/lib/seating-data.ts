@@ -125,6 +125,7 @@ export const tables: Table[] = [
       "William Yin Thin Wooi",
       "Dorothy Loke",
       "Yin Thien Hai",
+      "Yin Thin Song",
     ],
   },
   {
@@ -136,7 +137,6 @@ export const tables: Table[] = [
       "Keira",
       "Karl",
       "Leia",
-      "Yin Thin Song",
       "Tommy Leong",
       "Chrissy",
       "Sheldon Leong",
