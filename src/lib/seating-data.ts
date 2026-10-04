@@ -33,7 +33,7 @@ export const tables: Table[] = [
       "Fong Chiew Ying",
       "Kamran Rajendran",
       "Melody Kuan Pei San",
-      "Gooi Wai Jian",
+      "Gooi Way Jian",
       "Teh Han Sheryl",
       "Ong Lin Pin",
     ],
