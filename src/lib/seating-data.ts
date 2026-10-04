@@ -238,7 +238,13 @@ export const tables: Table[] = [
   {
     id: "5",
     name: "Zh's Friends",
-    guests: ["Yap Zi Jian", "Ron", "Yew Lim", "Russell", "Joseph Gan"],
+    guests: [
+      "Yap Zi Jian",
+      "Ron Edward Sioson",
+      "Chow Yew Lim",
+      "Russell Ng",
+      "Joseph Gan",
+    ],
   },
   {
     id: "2",
