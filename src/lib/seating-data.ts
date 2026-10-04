@@ -105,7 +105,7 @@ export const tables: Table[] = [
     id: "17",
     name: "Yin Family",
     guests: [
-      "Yin Thin Pao",
+      "Yin Thin Poh",
       "Siew Nui",
       "Yin Yung Yen",
       "Yin Joe Lynn",
