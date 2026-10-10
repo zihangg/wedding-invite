@@ -134,7 +134,7 @@ export const tables: Table[] = [
     ],
   },
   {
-    id: "15",
+    id: "19",
     name: "Yin Family",
     guests: [
       "Alvin Yin",
@@ -146,6 +146,16 @@ export const tables: Table[] = [
       "Yin Thien Hai",
       "Yin Thin Song",
     ],
+  },
+  {
+    id: "15",
+    name: "Goh Family",
+    guests: ["Goh Chin Young", "Goh Teng Kok", "Goh Chin Chin"],
+  },
+  {
+    id: "20",
+    name: "Goh Family",
+    guests: ["Goh Chin Lan"],
   },
   {
     id: "18",
